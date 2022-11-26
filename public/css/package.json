@@ -1,0 +1,16 @@
+{
+  "name": "css",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "main": "sass --no-source-map --style=compressed sass/main.sass main.css -w",
+    "dashboard": "sass --no-source-map --style=compressed sass/dashboard.sass dashboard.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}
