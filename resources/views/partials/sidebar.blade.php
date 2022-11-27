@@ -101,8 +101,8 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-active="/surat-masuk" data-active-two="/surat-keluar" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" data-active="/surat-masuk" data-active-two="/surat-keluar"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-envelope"></i>
                     Pengarsipan Surat
                 </a>
@@ -112,7 +112,8 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-active="/surat-masuk/laporan" data-active-two="/surat-keluar/laporan" role="button" data-bs-toggle="dropdown"
+                <a class="nav-link dropdown-toggle" href="#" data-active="/surat-masuk/laporan"
+                    data-active-two="/surat-keluar/laporan" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <i class="bi bi-archive-fill"></i>
                     Laporan Surat
@@ -148,5 +149,9 @@
         </div>
     </div>
 
-    @yield('content')
+    <div class="content col-lg-12">
+
+        @yield('content')
+
+    </div>
 </main>
