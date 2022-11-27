@@ -6,17 +6,23 @@
     <p>Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
+<div class="add-data col-lg-12">
+    <a href="" class="btn btn-primary">
+        <i class="bi bi-cloud-plus"></i>
+        Tambah Surat Keluar
+    </a>
+</div>
+
 <div role="main-content">
     <div class="aksi">
         <div class="dropdown">
-            <span>Show</span>
+            <span>Tampilkan</span>
 
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 3
             </a>
 
-            <span>Entries</span>
+            <span>Data</span>
 
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">1</a></li>
@@ -30,7 +36,7 @@
         </form>
     </div>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>No</th>
@@ -39,64 +45,39 @@
                 <th>Sifat Surat</th>
                 <th>Kategori Surat</th>
                 <th>Tujuan Surat</th>
-                <th>Aksi</th>
+                <th class="text-center">Aksi</th>
             </tr>
         </thead>
 
-        <tbody>
-            <tr>
-                <td>1</td>
+        <tbody class="table-group-divider">
+            @for ($i = 1; $i < 5; $i++) <tr>
+                <td>{{ $i }}</td>
                 <td>13-08-2021</td>
                 <td>DPU/2020</td>
                 <td>Penting</td>
                 <td>Surat Undangan</td>
                 <td>SMAN 5 Bengkulu</td>
-                <td>
-                    <a href="">Detail</a>
-                    <a href="">Ubah</a>
+                <td class="action">
+                    <a href="" class="btn btn-success">
+                        <i class="bi bi-info-circle"></i>
+                    </a>
+                    <a href="" class="btn btn-info">
+                        <i class="bi bi-pen"></i>
+                    </a>
 
                     <form action="">
-                        <button>Hapus</button>
+                        <button class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                        </button>
                     </form>
                 </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>13-10-2021</td>
-                <td>DPU/2020</td>
-                <td>Penting</td>
-                <td>Surat Undangan</td>
-                <td>SMAN 10 Bengkulu</td>
-                <td>
-                    <a href="">Detail</a>
-                    <a href="">Ubah</a>
-
-                    <form action="">
-                        <button>Hapus</button>
-                    </form>
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>13-12-2021</td>
-                <td>DPU/2020</td>
-                <td>Penting</td>
-                <td>Surat Undangan</td>
-                <td>SMAN 2 Bengkulu</td>
-                <td>
-                    <a href="">Detail</a>
-                    <a href="">Ubah</a>
-
-                    <form action="">
-                        <button>Hapus</button>
-                    </form>
-                </td>
-            </tr>
+                </tr>
+                @endfor
         </tbody>
     </table>
 
     <div class="info">
-        <p>Showing 1 to 3 Of 3 Entries</p>
+        <p>Menampilkan Data 1 Sampai 3 dari 3 Data</p>
 
         <div>
             <button>Sebelumnya</button>

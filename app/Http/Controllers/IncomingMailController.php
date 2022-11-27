@@ -14,7 +14,11 @@ class IncomingMailController extends Controller
      */
     public function index()
     {
-        return view('mails.incoming');
+        $data = [
+            'style' => 'mails/incoming'
+        ];
+
+        return view('mails.incoming', $data);
     }
 
     /**
@@ -85,6 +89,10 @@ class IncomingMailController extends Controller
 
     public function report()
     {
-        return view('mails.incoming-report');
+        $data = [
+            'style' => 'mails/incoming-report'
+        ];
+
+        return view('mails.incoming-report', $data);
     }
 }

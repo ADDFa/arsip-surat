@@ -13,7 +13,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.user');
+        $data = [
+            'style' => 'users/user'
+        ];
+
+        return view('users.user', $data);
     }
 
     /**

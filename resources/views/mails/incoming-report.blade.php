@@ -2,11 +2,16 @@
 
 @section('content')
 <h1>
-   Laporan Pengarsipan Surat Masuk
+    Laporan Pengarsipan Surat Masuk
     <p>Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
-<button>Print</button>
+<div class="print-data col-lg-12">
+    <a href="" class="btn btn-primary">
+        <i class="bi bi-printer"></i>
+        Print
+    </a>
+</div>
 
 <div role="main-content">
     <div class="aksi">
@@ -32,7 +37,7 @@
         </form>
     </div>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>No</th>
@@ -44,7 +49,7 @@
                 <th>Pengirim</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             <tr>
                 <td>1</td>
                 <td>13-10-2021</td>

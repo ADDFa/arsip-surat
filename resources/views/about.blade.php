@@ -7,6 +7,13 @@
     <p>Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
+<div class="update-data col-lg-12">
+    <a href="" class="btn btn-primary">
+        <i class="bi bi-cloud-plus"></i>
+        Ubah Data
+    </a>
+</div>
+
 <div role="main-content">
     <h3>SMAN 8 Kota Bengkulu</h3>
     <p>Instansi</p>

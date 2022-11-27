@@ -3,23 +3,27 @@
 @section('content')
 
 <h1>
-   Laporan Pengarsipan Surat Keluar
+    Laporan Pengarsipan Surat Keluar
     <p>Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
-<button>Print</button>
+<div class="print-data col-lg-12">
+    <a href="" class="btn btn-primary">
+        <i class="bi bi-printer"></i>
+        Print
+    </a>
+</div>
 
 <div role="main-content">
     <div class="aksi">
         <div class="dropdown">
-            <span>Show</span>
+            <span>Tampilkan</span>
 
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 3
             </a>
 
-            <span>Entries</span>
+            <span>Data</span>
 
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">1</a></li>
@@ -33,7 +37,7 @@
         </form>
     </div>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>No</th>
@@ -45,7 +49,7 @@
                 <th>Tujuan Surat</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             <tr>
                 <td>1</td>
                 <td>13-10-2021</td>
@@ -77,7 +81,7 @@
     </table>
 
     <div class="info">
-        <p>Showing 1 to 3 Of 3 Entries</p>
+        <p>Menampilkan Data 1 Sampai 3 dari 3 Data</p>
 
         <div>
             <button>Sebelumnya</button>

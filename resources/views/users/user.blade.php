@@ -7,19 +7,23 @@
     <p> Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
-<a href=""></a>
+<div class="add-data col-lg-12">
+    <a href="" class="btn btn-primary">
+        <i class="bi bi-person-plus"></i>
+        Tambah Pengguna
+    </a>
+</div>
 
 <div role="main-content">
     <div class="aksi">
         <div class="dropdown">
-            <span>Show</span>
+            <span>Tampilkan</span>
 
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 3
             </a>
 
-            <span>Entries</span>
+            <span>Data</span>
 
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">1</a></li>
@@ -38,42 +42,38 @@
                 <th>Email</th>
                 <th>Avatar</th>
                 <th>Status</th>
-                <th>Aksi</th>
+                <th class="text-center">Aksi</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            <tr>
-                <td>1</td>
+            @for ($i = 1; $i < 5; $i++) <tr>
+                <td>{{ $i }}</td>
                 <td>caturrrr</td>
                 <td>Faridho Catur Pamungkas</td>
                 <td>faridhoc@gmail.com</td>
                 <td>photo.jpg</td>
                 <td>Admin</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>andriyan</td>
-                <td>Andriyansyah</td>
-                <td>Andriyansyah@gmail.com</td>
-                <td>12345.jpg</td>
-                <td>User</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Adhaa</td>
-                <td>Adha Dont Differatama</td>
-                <td>adhadond@gmail.com</td>
-                <td>foto.jpg</td>
-                <td>User</td>
-                <td></td>
-            </tr>
+                <td class="action">
+                    <a href="" class="btn btn-success">
+                        <i class="bi bi-info-circle"></i>
+                    </a>
+                    <a href="" class="btn btn-info">
+                        <i class="bi bi-pen"></i>
+                    </a>
+
+                    <form action="">
+                        <button class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+                </td>
+                </tr>
+                @endfor
         </tbody>
     </table>
 
     <div class="info">
-        <p>Showing 1 to 3 Of 3 Entries</p>
+        <p>Menampilkan Data 1 Sampai 3 dari 3 Data</p>
 
         <div>
             <button>Sebelumnya</button>
