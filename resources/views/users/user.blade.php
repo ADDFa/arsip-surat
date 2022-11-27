@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>No</th>
@@ -41,7 +41,7 @@
                 <th>Aksi</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             <tr>
                 <td>1</td>
                 <td>caturrrr</td>
