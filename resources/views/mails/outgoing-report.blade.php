@@ -3,8 +3,8 @@
 @section('content')
 
 <h1>
-    Hello world ngentut iko laporan surat keluar
-    <p></p>
+   Laporan Pengarsipan Surat Keluar
+    <p>Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
 <button>Print</button>
@@ -16,15 +16,15 @@
 
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Dropdown link
+                3
             </a>
 
             <span>Entries</span>
 
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">1</a></li>
+                <li><a class="dropdown-item" href="#">2</a></li>
+                <li><a class="dropdown-item" href="#">3</a></li>
             </ul>
         </div>
 
@@ -36,42 +36,42 @@
     <table>
         <thead>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>No</th>
+                <th>Tanggal Surat</th>
+                <th>Nomor Surat</th>
+                <th>Perihal</th>
+                <th>Sifat Surat</th>
+                <th>Kategori Surat</th>
+                <th>Tujuan Surat</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>1</td>
+                <td>13-10-2021</td>
+                <td>DPU/2020</td>
+                <td>Undangan Lomba</td>
+                <td>Penting</td>
+                <td>Surat Undangan</td>
+                <td>SMAN 5 Bengkulu</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>2</td>
+                <td>13-10-2021</td>
+                <td>DPU/2020</td>
+                <td>Undangan Kegiatan</td>
+                <td>Penting</td>
+                <td>Surat Undangan</td>
+                <td>SMAN 10 Bengkulu</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>3</td>
+                <td>13-10-2021</td>
+                <td>DPU/2020</td>
+                <td>Undangan Pertemuan</td>
+                <td>Penting</td>
+                <td>Surat Undangan</td>
+                <td>SMAN 2 Bengkulu</td>
             </tr>
         </tbody>
     </table>
