@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "main": "sass --no-source-map --style=compressed sass/main.sass main.css -w",
-    "dashboard": "sass --no-source-map --style=compressed sass/dashboard.sass dashboard.css -w"
+    "dashboard": "sass --no-source-map --style=compressed sass/dashboard.sass dashboard.css -w",
+    "about": "sass --no-source-map --style=compressed sass/users/user.sass users/user.css -w"
   },
   "keywords": [],
   "author": "",
