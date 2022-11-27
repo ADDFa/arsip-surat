@@ -3,42 +3,42 @@
 @section('content')
 
 <h1>
-    Hello world ngentut iko about
-    <p></p>
+    About
+    <p>Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
 <div role="main-content">
-    <h3></h3>
-    <p></p>
+    <h3>SMAN 8 Kota Bengkulu</h3>
+    <p>Instansi</p>
 
     <table>
         <thead>
             <tr>
-                <th></th>
-                <th></th>
+                <th>Kabupaten/Kota</th>
+                <th>Bengkulu</th>
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                <td></td>
-                <td></td>
+                <td>No Telpon</td>
+                <td>0736-7310228</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Email</td>
+                <td>smandelbengkulu@gmail.com</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Alamat</td>
+                <td>Jln. WR Supratman, No.18 Rt.007, Pematang Gubernur, Kecamatan Muara Bangkahulu</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Kepala Sekolah</td>
+                <td>Hidayatul Mardiah</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>NIP</td>
+                <td>1771074110790001</td>
             </tr>
         </tbody>
     </table>
