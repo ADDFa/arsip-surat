@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="content col-lg-12">
-    <h1>Berubahhhh</h1>
     <h1>
         Dashboard
         <p>Sistem Informasi Pengarsipan Surat</p>
