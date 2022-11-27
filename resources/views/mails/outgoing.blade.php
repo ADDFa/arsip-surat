@@ -2,8 +2,8 @@
 
 @section('content')
 <h1>
-    Hello world ngentut iko surat keluar
-    <p></p>
+    Data Surat Keluar
+    <p>Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
 <div role="main-content">
@@ -13,15 +13,15 @@
 
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Dropdown link
+                3
             </a>
 
             <span>Entries</span>
 
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">1</a></li>
+                <li><a class="dropdown-item" href="#">2</a></li>
+                <li><a class="dropdown-item" href="#">3</a></li>
             </ul>
         </div>
 
@@ -33,24 +33,24 @@
     <table>
         <thead>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>No</th>
+                <th>Tanggal Surat</th>
+                <th>Nomor Surat</th>
+                <th>Sifat Surat</th>
+                <th>Kategori Surat</th>
+                <th>Tujuan Surat</th>
+                <th>Aksi</th>
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>1</td>
+                <td>13-08-2021</td>
+                <td>DPU/2020</td>
+                <td>Penting</td>
+                <td>Surat Undangan</td>
+                <td>SMAN 5 Bengkulu</td>
                 <td>
                     <a href="">Detail</a>
                     <a href="">Ubah</a>
@@ -61,24 +61,49 @@
                 </td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <td>1</td>
+                <td>13-10-2021</td>
+                <td>DPU/2020</td>
+                <td>Penting</td>
+                <td>Surat Undangan</td>
+                <td>SMAN 10 Bengkulu</td>
+                <td>
+                    <a href="">Detail</a>
+                    <a href="">Ubah</a>
+
+                    <form action="">
+                        <button>Hapus</button>
+                    </form>
+                </td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <td>1</td>
+                <td>13-12-2021</td>
+                <td>DPU/2020</td>
+                <td>Penting</td>
+                <td>Surat Undangan</td>
+                <td>SMAN 2 Bengkulu</td>
+                <td>
+                    <a href="">Detail</a>
+                    <a href="">Ubah</a>
+
+                    <form action="">
+                        <button>Hapus</button>
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>
+
+    <div class="info">
+        <p>Showing 1 to 3 Of 3 Entries</p>
+
+        <div>
+            <button>Sebelumnya</button>
+            <button>1</button>
+            <button>Selanjutnya</button>
+        </div>
+    </div>
 </div>
+
 @endsection
