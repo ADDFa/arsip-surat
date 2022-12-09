@@ -1,0 +1,40 @@
+@use '../units/variable' as var
+
+.sidebar
+    background-color: #fafafa
+    width: var.$width-sidebar
+
+    .bi // nav-link icons
+        margin-right: 1.2em
+
+    .nav-link
+        padding: .8em 1.6em
+        color: #585856
+        &.active
+            background-color: #84665b
+            color: #fff
+
+.user-profile-picture
+    width: 65px
+    aspect-ratio: 1/1
+    border-radius: 50%
+    border: 3px solid #707070
+    box-sizing: border-box
+    margin-right: 8px
+
+.username
+    white-space: nowrap
+    font-weight: bolder
+    font-size: 1.6rem
+    display: flex
+    flex-direction: column
+    line-height: 1.5rem
+
+    span:first-child
+        color: #776A65
+
+    span:last-child
+        font-size: 1.2rem
+        font-weight: normal
+        font-style: italic
+        color: #707070

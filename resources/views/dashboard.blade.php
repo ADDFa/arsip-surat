@@ -6,7 +6,7 @@
     <p>Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
-<div role="main-content" class="row col-lg-12">
+<div role="dashboard-content" class="row col-lg-12">
     <div class="col-lg-3">
         <a href="">
             <div class="card">

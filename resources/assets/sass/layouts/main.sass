@@ -1,0 +1,30 @@
+@use '../../node_modules/bootstrap/scss/bootstrap'
+
+@use '../partials/navbar'
+@use '../partials/sidebar'
+
+@use '../units/variable' as var
+
+html
+    height: -webkit-fill-available
+
+body
+    font-family: Arial, Helvetica, sans-serif
+    color: var.$main-color
+    min-height: calc( 100vh - var.$nav-height )
+    min-height: -webkit-fill-available
+
+main
+    height: 100vh
+    height: -webkit-fill-available
+    max-height: 100vh
+    overflow-x: auto
+    overflow-y: hidden
+
+.content
+    padding: 4rem
+    box-sizing: border-box
+    width: calc( 100vw - var.$width-sidebar )
+
+    h1
+        transform: translate(-3rem, -3rem)

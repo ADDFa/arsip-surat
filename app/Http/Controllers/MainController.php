@@ -10,7 +10,6 @@ class MainController extends Controller
     {
         $data = [
             'title'     => 'Dashboard',
-            'style'     => 'dashboard',
             'script'    => 'dashboard'
         ];
 
@@ -19,10 +18,6 @@ class MainController extends Controller
 
     public function about()
     {
-        $data = [
-            'style' => 'about'
-        ];
-
-        return view('about', $data);
+        return view('about');
     }
 }
