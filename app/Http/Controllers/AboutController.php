@@ -7,35 +7,11 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    private $about;
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function __construct()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $this->about = About::all()->first();
     }
 
     /**
@@ -44,9 +20,14 @@ class AboutController extends Controller
      * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function show(About $about)
+    public function show()
     {
-        //
+        $data = [
+            'title'     => 'Tentang SMAN 8 Bengkulu',
+            'about'     => $this->about
+        ];
+
+        return view('about', $data);
     }
 
     /**
@@ -55,9 +36,9 @@ class AboutController extends Controller
      * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $about)
+    public function edit()
     {
-        //
+        return $this->about;
     }
 
     /**
@@ -68,17 +49,6 @@ class AboutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, About $about)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(About $about)
     {
         //
     }

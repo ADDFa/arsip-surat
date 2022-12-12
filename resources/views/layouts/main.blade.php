@@ -15,6 +15,9 @@
 </head>
 
 <body>
+    {{-- notification --}}
+    <span id="notification" data-icon="{{ session('icon') }}" data-message="{{ session('message') }}"></span>
+
     @include('partials.navbar')
 
     @include('partials.sidebar')

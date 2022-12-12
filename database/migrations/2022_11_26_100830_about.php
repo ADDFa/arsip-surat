@@ -13,18 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('about', function (Blueprint $table) {
+        Schema::create('abouts', function (Blueprint $table) {
             $table->id();
             $table->string('telephone_number', 30);
-            $table->string('email', 30);
-            $table->string('address', 30);
-            $table->string('head_master', 30);
+            $table->string('email', 50);
+            $table->text('address');
+            $table->string('head_master', 50);
             $table->string('nip', 30);
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('about');
+        Schema::dropIfExists('abouts');
     }
 };

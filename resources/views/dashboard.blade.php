@@ -6,49 +6,52 @@
     <p>Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
-<div role="dashboard-content" class="row col-lg-12">
+<div role="dashboard-content" class="row col-lg-12 mb-5">
     <div class="col-lg-3">
-        <a href="">
+        <a href="/pengguna">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">User</h5>
-                    <p class="card-text">3</p>
+                    <h5 class="card-title">Pengguna</h5>
+                    <p class="card-text">{{ $amount->user }}</p>
                     <hr>
                     <p class="text-end">Total User</p>
                 </div>
             </div>
         </a>
     </div>
+
     <div class="col-lg-3">
-        <a href="">
+        <a href="/disposisi">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Disposisi</h5>
-                    <p class="card-text">3</p>
+                    <p class="card-text">{{ $amount->disposition }}</p>
                     <hr>
                     <p class="text-end">Total Riwayat Disposisi</p>
                 </div>
             </div>
         </a>
     </div>
+
     <div class="col-lg-3">
-        <a href="">
+        <a href="/surat-masuk">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Surat Masuk</h5>
-                    <p class="card-text">3</p>
+                    <p class="card-text">{{ $amount->incoming }}</p>
                     <hr>
                     <p class="text-end">Total Surat</p>
                 </div>
             </div>
         </a>
     </div>
+
     <div class="col-lg-3">
-        <a href="">
+        <a href="/surat-keluar">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Surat Keluar</h5>
-                    <p class="card-text">3</p>
+                    <p class="card-text">{{ $amount->outgoing }}</p>
                     <hr>
                     <p class="text-end">Total Surat</p>
                 </div>

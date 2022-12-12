@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class Main extends Seeder
@@ -18,7 +17,9 @@ class Main extends Seeder
             DatabaseSeeder::class,
             Disposition::class,
             OutgoingMail::class,
-            IncomingMail::class
+            IncomingMail::class,
+            Credential::class,
+            About::class
         ]);
     }
 }

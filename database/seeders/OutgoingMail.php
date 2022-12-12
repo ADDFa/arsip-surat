@@ -17,11 +17,9 @@ class OutgoingMail extends Seeder
     public function run()
     {
         for ($i = 0; $i < 10; $i++) {
-            DB::table('outgoing_mail')->insert([
+            DB::table('outgoing_mails')->insert([
                 'mail_number' => Str::random(),
-                'day' => $i,
-                'month' => $i,
-                'year' => '20' . $i,
+                'date'          => strtotime(now()),
                 'mail_nature' => Str::random(),
                 'mail_category' => Str::random(),
                 'mail_destination' => Str::random()

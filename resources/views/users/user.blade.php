@@ -15,8 +15,8 @@
 </div>
 
 <div role="main-content">
-    <div class="aksi">
-        <div class="dropdown">
+    <div class="aksi d-flex justify-content-between align-items-center mb-4">
+        <div class="dropdown col-lg-8">
             <span>Tampilkan</span>
 
             <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,6 +31,10 @@
                 <li><a class="dropdown-item" href="#">3</a></li>
             </ul>
         </div>
+
+        <form class="search position-relative col-lg-4">
+            <input type="text" class="form-control" placeholder="Search...">
+        </form>
     </div>
 
     <table class="table">
@@ -46,29 +50,30 @@
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            @for ($i = 1; $i < 5; $i++) <tr>
-                <td>{{ $i }}</td>
-                <td>caturrrr</td>
-                <td>Faridho Catur Pamungkas</td>
-                <td>faridhoc@gmail.com</td>
-                <td>photo.jpg</td>
-                <td>Admin</td>
+            @foreach ($users as $user)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $user->credential->username }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->credential->email }}</td>
+                <td>{{ $user->avatar ?? 'photo.jpg' }}</td>
+                <td>{{ $user->role }}</td>
                 <td class="action">
-                    <a href="" class="btn btn-success">
+                    <a href="/pengguna/{{ $user->id }}" class="btn btn-success">
                         <i class="bi bi-info-circle"></i>
                     </a>
-                    <a href="" class="btn btn-info">
-                        <i class="bi bi-pen"></i>
-                    </a>
 
-                    <form action="">
+                    <form action="/pengguna/{{ $user->id }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+
                         <button class="btn btn-danger">
                             <i class="bi bi-trash"></i>
                         </button>
                     </form>
                 </td>
-                </tr>
-                @endfor
+            </tr>
+            @endforeach
         </tbody>
     </table>
 

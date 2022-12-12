@@ -14,8 +14,8 @@
 </div>
 
 <div role="main-content">
-    <div class="aksi">
-        <div class="dropdown">
+    <div class="aksi d-flex justify-content-between align-items-center mb-4">
+        <div class="dropdown col-lg-8">
             <span>Tampilkan</span>
 
             <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,8 +31,8 @@
             </ul>
         </div>
 
-        <form class="search">
-            <input type="text">
+        <form class="search position-relative col-lg-4">
+            <input type="text" class="form-control" placeholder="Search...">
         </form>
     </div>
 
@@ -40,10 +40,8 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Tanggal Surat</th>
                 <th>Nomor Surat</th>
-                <th>Sifat Surat</th>
-                <th>Kategori Surat</th>
+                <th>Jenis Surat</th>
                 <th>Pengirim</th>
                 <th>Disposisi</th>
                 <th class="text-center">Aksi</th>
@@ -51,13 +49,12 @@
         </thead>
 
         <tbody class="table-group-divider">
-            @for ($i = 1; $i < 5; $i++) <tr>
-                <td>{{ $i }}</td>
-                <td>13-08-2021</td>
-                <td>DPU/2020</td>
-                <td>Penting</td>
-                <td>Surat Undangan</td>
-                <td>SMAN 5 Bengkulu</td>
+            @foreach ($mails as $mail)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $mail->mail_number }}</td>
+                <td>{{ $mail->mail_nature }}</td>
+                <td>{{ $mail->sender }}</td>
                 <td></td>
                 <td class="action">
                     <a href="" class="btn btn-success">
@@ -67,14 +64,18 @@
                         <i class="bi bi-pen"></i>
                     </a>
 
-                    <form action="">
-                        <button class="btn btn-danger">
-                            <i class="bi bi-trash"></i>
+                    <form action="/surat-masuk/{{ $mail->id }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+
+                        <button type="button" class="btn btn-danger delete">
+                            <i class="bi bi-trash delete"></i>
                         </button>
+                        <button hidden type="submit"></button>
                     </form>
                 </td>
-                </tr>
-                @endfor
+            </tr>
+            @endforeach
         </tbody>
     </table>
 

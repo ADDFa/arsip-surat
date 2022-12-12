@@ -1,28 +1,31 @@
-<nav class="navbar navbar-expand-lg px-5">
-    <div class="col-lg-6">
-        <div class="container-fluid">
-            <a class="navbar-brand fs-2" href="#">
-                <img src="/img/logo.png" alt="Logo" class="logo">
-                SMAN 8 Kota Bengkulu
-            </a>
-        </div>
-    </div>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/beranda">
+            <img src="/img/logo.png" alt="Logo" class="logo">
+            <h3 class="fw-bold d-inline">SMAN 8 Kota Bengkulu</h3>
+        </a>
 
-    <div class="col-lg-6">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-end">
-            <li class="nav-item dropdown">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse justify-content-end navbar-collapse" id="navbarSupportedContent">
+            <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    Welcome, Faridho Catur Pamungkas
+                    Selamat Datang, {{ session('user')->name }}
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class=" dropdown-item" href="#">Ganti Passowrd</a></li>
+                    <li><a class=" dropdown-item"
+                            href="/pengguna/{{ session('user')->username }}/edit-profil">Profil</a>
+                    </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="/keluar">Keluar</a></li>
                 </ul>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 </nav>

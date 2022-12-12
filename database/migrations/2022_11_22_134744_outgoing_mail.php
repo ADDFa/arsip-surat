@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('outgoing_mail', function (Blueprint $table) {
+        Schema::create('outgoing_mails', function (Blueprint $table) {
             $table->id();
             $table->string('mail_number', 30);
-            $table->string('day', 3);
-            $table->string('month', 3);
-            $table->string('year', 5);
+            $table->string('date', 20);
             $table->string('mail_nature', 20);
             $table->string('mail_category', 30);
             $table->string('mail_destination', 40);
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('outgoing_mail');
+        Schema::dropIfExists('outgoing_mails');
     }
 };

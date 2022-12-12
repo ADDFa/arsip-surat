@@ -63,7 +63,7 @@ return [
         'numeric' => 'The :attribute must be greater than or equal to :value.',
         'string' => 'The :attribute must be greater than or equal to :value characters.',
     ],
-    'image' => 'The :attribute must be an image.',
+    'image' => 'Yang Diupload Harus Gambar.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
@@ -87,9 +87,9 @@ return [
     'mac_address' => 'The :attribute must be a valid MAC address.',
     'max' => [
         'array' => 'The :attribute must not have more than :max items.',
-        'file' => 'The :attribute must not be greater than :max kilobytes.',
+        'file' => 'Ukuran :attribute Maksimal :max KB.',
         'numeric' => 'The :attribute must not be greater than :max.',
-        'string' => 'The :attribute must not be greater than :max characters.',
+        'string' => 'Kolom :attribute Maksimal :max Karakter.',
     ],
     'max_digits' => 'The :attribute must not have more than :max digits.',
     'mimes' => 'The :attribute must be a file of type: :values.',
@@ -98,7 +98,7 @@ return [
         'array' => 'The :attribute must have at least :min items.',
         'file' => 'The :attribute must be at least :min kilobytes.',
         'numeric' => 'The :attribute must be at least :min.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => ':attribute Minimal :min Karakter.',
     ],
     'min_digits' => 'The :attribute must have at least :min digits.',
     'multiple_of' => 'The :attribute must be a multiple of :value.',
@@ -118,7 +118,7 @@ return [
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => 'Kolom :attribute Harus Diisi.',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_if_accepted' => 'The :attribute field is required when :other is accepted.',
@@ -137,7 +137,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid timezone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => ':attribute Sudah Digunakan, Gunakan :attribute Lain.',
     'uploaded' => 'The :attribute failed to upload.',
     'uppercase' => 'The :attribute must be uppercase.',
     'url' => 'The :attribute must be a valid URL.',
@@ -171,6 +171,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name'          => 'Nama',
+        'password'      => 'Kata Sandi',
+        'role'          => 'Status',
+        'avatar'        => 'Foto Profil'
+    ],
 
 ];

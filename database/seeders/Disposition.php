@@ -16,7 +16,7 @@ class Disposition extends Seeder
     public function run()
     {
         for ($i = 0; $i < 10; $i++) {
-            DB::table('disposition')->insert([
+            DB::table('dispositions')->insert([
                 'regarding' => Str::random(),
                 'mail_origin' => Str::random(),
                 'disposition_destination' => Str::random(),

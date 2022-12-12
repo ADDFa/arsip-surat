@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ChangeProfilController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MainController;
@@ -20,18 +22,29 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', [LoginController::class, 'index']);
+Route::post('/', [LoginController::class, 'entry']);
+Route::get('/keluar', [LoginController::class, 'exit']);
 
 Route::middleware('login')->group(function () {
     Route::get('beranda', [MainController::class, 'index']);
-    Route::get('tentang', [MainController::class, 'about']);
-
-    Route::resource('pengguna', UserController::class);
-
     Route::get('surat-masuk/laporan', [IncomingMailController::class, 'report']);
-    Route::resource('surat-masuk', IncomingMailController::class);
-
     Route::get('surat-keluar/laporan', [OutgoingMailController::class, 'report']);
-    Route::resource('surat-keluar', OutgoingMailController::class);
 
-    Route::get('pengguna/{user}/ganti-password', [UserController::class, 'edit']);
+    Route::singleton('tentang', AboutController::class);
+    Route::singleton('pengguna.edit-profil', ChangeProfilController::class)->parameter('pengguna', 'credential');
+
+    Route::resources(
+        [
+            'pengguna'          => UserController::class,
+            'surat-masuk'       => IncomingMailController::class,
+            'surat-keluar'      => OutgoingMailController::class
+        ],
+        [
+            'parameters'        => [
+                'surat-masuk'   => 'incoming_mail',
+                'surat-keluar'  => 'outgoing_mail',
+                'pengguna'      => 'user'
+            ]
+        ]
+    );
 });
