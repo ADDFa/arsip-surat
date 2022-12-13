@@ -28,7 +28,7 @@ return [
         'array' => 'The :attribute must have between :min and :max items.',
         'file' => 'The :attribute must be between :min and :max kilobytes.',
         'numeric' => 'The :attribute must be between :min and :max.',
-        'string' => 'The :attribute must be between :min and :max characters.',
+        'string' => 'Panjang Karakter :attribute Minimal :min dan Maksimal :max.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
     'confirmed' => 'The :attribute confirmation does not match.',
@@ -172,10 +172,24 @@ return [
     */
 
     'attributes' => [
-        'name'          => 'Nama',
-        'password'      => 'Kata Sandi',
-        'role'          => 'Status',
-        'avatar'        => 'Foto Profil'
-    ],
+        // user
+        'name'              => 'Nama',
+        'password'          => 'Kata Sandi',
+        'role'              => 'Status',
+        'avatar'            => 'Foto Profil',
+        'changePassword'    => 'Ganti Password',
 
+        // mail
+        'mailNumber'        => 'Nomor Surat',
+        'date'              => 'Tanggal',
+        'mailNature'        => 'Jenis Surat',
+        'mailCategory'      => 'Kategori Surat',
+        'mailDestination'   => 'Tujuan Surat',
+
+        // about
+        'noTelp'            => 'Nomor Telepon',
+        'address'           => 'Alamat',
+        'headMaster'        => 'Kepala Sekolah',
+        'nipHeadMaster'     => 'NIP Kepala Sekolah',
+    ],
 ];

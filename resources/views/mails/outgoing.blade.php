@@ -8,7 +8,7 @@
 </h1>
 
 <div class="add-data col-lg-12">
-    <a href="" class="btn btn-primary">
+    <a href="/surat-keluar/create" class="btn btn-primary">
         <i class="bi bi-cloud-plus"></i>
         Tambah Surat Keluar
     </a>
@@ -56,10 +56,10 @@
                 <td>{{ $mail->mail_nature }}</td>
                 <td>{{ $mail->mail_destination }}</td>
                 <td class="action">
-                    <a href="" class="btn btn-success">
+                    <a href="/surat-keluar/{{ $mail->id }}" class="btn btn-success">
                         <i class="bi bi-info-circle"></i>
                     </a>
-                    <a href="" class="btn btn-info">
+                    <a href="/surat-keluar/{{ $mail->id }}/edit" class="btn btn-info">
                         <i class="bi bi-pen"></i>
                     </a>
 

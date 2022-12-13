@@ -27,7 +27,7 @@ class AboutController extends Controller
             'about'     => $this->about
         ];
 
-        return view('about', $data);
+        return view('abouts.about', $data);
     }
 
     /**
@@ -38,7 +38,12 @@ class AboutController extends Controller
      */
     public function edit()
     {
-        return $this->about;
+        $data = [
+            'title'     => 'Ubah Data SMAN 8 Bengkulu',
+            'about'     => $this->about
+        ];
+
+        return view('abouts.about-edit', $data);
     }
 
     /**
@@ -50,6 +55,27 @@ class AboutController extends Controller
      */
     public function update(Request $request, About $about)
     {
-        //
+        $request->validate([
+            'noTelp'        => 'required|max:30',
+            'email'         => 'required|max:50',
+            'address'       => 'required',
+            'headMaster'    => 'required|max:50',
+            'nipHeadMaster' => 'required|max:30'
+        ]);
+
+        $about = $about->first();
+
+        $about->telephone_number = $request->noTelp;
+        $about->email            = $request->email;
+        $about->address          = $request->address;
+        $about->head_master      = $request->headMaster;
+        $about->nip              = $request->nipHeadMaster;
+
+        $about->save();
+
+        return redirect('/tentang')->with([
+            'icon'      => 'success',
+            'message'   => 'Berhasil Mengubah Data SMAN 8 Bengkulu'
+        ]);
     }
 }

@@ -2,22 +2,6 @@
 
 @section('content')
 
-<style>
-    .user-profile figure {
-        padding: 3rem;
-        background-color: #FAF6F0;
-        border-radius: 2rem;
-    }
-
-    .user-profile img {
-        height: 150px;
-        width: 150px;
-        border-radius: 50%;
-        margin-bottom: 1rem;
-        box-shadow: 0 0 8px 4px #fff;
-    }
-</style>
-
 <div class="col-lg-8 mx-auto user-profile">
     <figure class="text-center">
         <img src="{{ asset('storage/images/' . session('user')->avatar ?? 'samsudin.jpg') }}"
@@ -25,24 +9,16 @@
         <figcaption>{{ session('user')->name }}</figcaption>
     </figure>
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
     <form action="/pengguna/{{ $credential->username }}/edit-profil" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
 
         <div class="mb-3">
             <label class="form-label">Nama</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name') ??  $credential->user->name }}" {{
-                $edit ?? 'disabled' }} required>
+            <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
+                value="{{ old('name') ??  $credential->user->name }}" {{ $edit ?? 'disabled' }}
+                aria-describedby="nameFeedback">
+            <div id="nameFeedback" class="invalid-feedback">{{ $errors->first('name') }}</div>
         </div>
         {{-- show only --}}
         @if (!isset($edit))
@@ -54,20 +30,26 @@
         {{-- end show only --}}
         <div class="mb-3">
             <label class="form-label">Username</label>
-            <input type="text" name="username" class="form-control"
-                value="{{ old('username') ?? $credential->username }}" {{ $edit ?? 'disabled' }} required>
+            <input type="text" name="username" class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}"
+                value="{{ old('username') ?? $credential->username }}" {{ $edit ?? 'disabled' }}
+                aria-describedby="usernameFeedback">
+            <div id="usernameFeedback" class="invalid-feedback">{{ $errors->first('username') }}</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" value="{{ old('email') ?? $credential->email }}" {{
-                $edit ?? 'disabled' }} required>
+            <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
+                value="{{ old('email') ?? $credential->email }}" {{ $edit ?? 'disabled' }}
+                aria-describedby="emailFeedback">
+            <div id="emailFeedback" class="invalid-feedback">{{ $errors->first('role') }}</div>
         </div>
         {{-- edit only --}}
         @if ($edit ?? false)
         <div class="mb-3">
             <label class="form-label">Ganti Password</label>
-            <input type="text" name="changePassword" class="form-control" value="{{ old('changePassword') }}"
-                aria-describedby="update-password-help">
+            <input type="text" name="changePassword"
+                class="form-control {{ $errors->has('changePassword') ? 'is-invalid' : '' }}"
+                value="{{ old('changePassword') }}" aria-describedby="update-password-help changePasswordFeedback">
+            <div id="changePasswordFeedback" class="invalid-feedback">{{ $errors->first('changePassword') }}</div>
             <div id="update-password-help" class="form-text">Kosongkan Jika Tidak Ingin Mengganti Password</div>
         </div>
         <div class="mb-3">

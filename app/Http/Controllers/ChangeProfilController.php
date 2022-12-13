@@ -63,7 +63,7 @@ class ChangeProfilController extends Controller
 
         // cek apakah password diupdate
         if (!is_null($request->changePassword)) {
-            $validation += ['password' => 'min:8|max:255'];
+            $validation += ['changePassword' => 'between:8,255'];
             $credentialData += ['password' => password_hash($request->changePassword, PASSWORD_DEFAULT)];
         };
 
@@ -96,7 +96,7 @@ class ChangeProfilController extends Controller
         $request->session()->forget('user');
         $request->session()->put('user', (object) $user);
 
-        return redirect()->back()->with([
+        return redirect('/pengguna/' . session('user')->username . '/edit-profil/edit')->with([
             'icon'      => 'success',
             'message'   => 'Berhasil Memperbaharui Profil'
         ]);

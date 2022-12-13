@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('avatar')->nullable();
-            $table->string('role', 10);
+            $table->string('role', 20);
             $table->timestamps();
         });
     }

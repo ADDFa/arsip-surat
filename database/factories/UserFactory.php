@@ -17,7 +17,7 @@ class UserFactory extends Factory
     public function definition()
     {
         $random = floor(rand(0, 2));
-        $roles = ['admin', 'kepsek', 'sekre'];
+        $roles = ['admin', 'kepala-sekolah', 'sekretaris'];
 
         return [
             'name' => fake()->name(),

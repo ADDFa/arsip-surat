@@ -8,7 +8,7 @@
 </h1>
 
 <div class="add-data col-lg-12">
-    <a href="" class="btn btn-primary">
+    <a href="/pengguna/create" class="btn btn-primary">
         <i class="bi bi-person-plus"></i>
         Tambah Pengguna
     </a>
@@ -41,10 +41,8 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Username</th>
                 <th>Nama</th>
                 <th>Email</th>
-                <th>Avatar</th>
                 <th>Status</th>
                 <th class="text-center">Aksi</th>
             </tr>
@@ -53,10 +51,8 @@
             @foreach ($users as $user)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $user->credential->username }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->credential->email }}</td>
-                <td>{{ $user->avatar ?? 'photo.jpg' }}</td>
                 <td>{{ $user->role }}</td>
                 <td class="action">
                     <a href="/pengguna/{{ $user->id }}" class="btn btn-success">

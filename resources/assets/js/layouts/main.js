@@ -1,5 +1,34 @@
 const Swal = require('sweetalert2')
 
+// global function
+const el = el => document.querySelector(`${el}`)
+
+// active sidebar
+const setActive = () => {
+    let active = el(`[data-active="${location.pathname}"]`)
+
+    if (!active) active = el(`[data-active-two="${location.pathname}"]`)
+    if (!active) return
+
+    active.classList.add('active')
+}
+
+// selected form select
+const selected = () => {
+    const select = el('data-select')
+    if (!select) return
+
+    const dataSelect = select.dataset.select
+    dataSelect ? select.querySelector(`[value="${dataSelect}"]`).setAttribute('select') : ''
+}
+
+// remove invalid form on input
+const removeInvalid = e => {
+    if (!e.target.classList.contains('is-invalid')) return
+    e.target.classList.remove('is-invalid')
+}
+
+// Toast Notification
 const Toast = Swal.mixin({
     toast: true,
     position: 'top-end',
@@ -11,17 +40,6 @@ const Toast = Swal.mixin({
         toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
 })
-
-// active sidebar
-const setActive = () => {
-    let active = document.querySelector(`[data-active="${location.pathname}"]`)
-
-    if (!active) active = document.querySelector(`[data-active-two="${location.pathname}"]`)
-    if (!active) return
-
-    active.classList.add('active')
-}
-
 
 // notification
 const notification = () => {
@@ -54,9 +72,13 @@ const deleteData = e => {
     })
 }
 
+// event
+document.addEventListener('input', removeInvalid)
+
 document.addEventListener('click', deleteData)
 
 window.addEventListener('load', () => {
     setActive()
     notification()
+    selected()
 })

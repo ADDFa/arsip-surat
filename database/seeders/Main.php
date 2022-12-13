@@ -18,6 +18,7 @@ class Main extends Seeder
             Disposition::class,
             OutgoingMail::class,
             IncomingMail::class,
+            User::class,
             Credential::class,
             About::class
         ]);
