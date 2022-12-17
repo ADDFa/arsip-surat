@@ -2,12 +2,12 @@
 
 @section('content')
 <h1>
-    Tambah Data Pengguna
+    Tambah Data Surat Keluar
     <p> Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
 <div class="col-lg-10 mx-auto" role="main-content">
-    <form action="/surat-keluar" method="POST">
+    <form action="/surat-keluar" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -46,6 +46,13 @@
                 aria-describedby="mailDestinationHelp mailDestinationFeddback">
             <div id="mailDestinationFeddback" class="invalid-feedback">{{ $errors->first('mailDestination') }}</div>
             <div id="mailDestinationHelp" class="form-text">Masukkan Status Pengguna</div>
+        </div>
+        <div class="mb-3">
+            <label for="mailFile" class="form-label">File Surat</label>
+            <input type="file" class="form-control {{ $errors->has('mailFile') ? 'is-invalid' : '' }}" id="mailFile"
+                name="mailFile" aria-describedby="mailFileHelp mailFileFeeddback">
+            <div id="mailFileFeeddback" class="invalid-feedback">{{ $errors->first('mailFile') }}</div>
+            <div id="mailFileHelp" class="form-text">Masukkan File Surat</div>
         </div>
         <div class="mb-3 d-flex justify-content-end gap-2">
             <a href="/surat-keluar" class="btn btn-warning">Kembali</a>

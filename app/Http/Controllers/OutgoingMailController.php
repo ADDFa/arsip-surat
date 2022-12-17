@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\OutgoingMail;
 use App\Http\Controllers\Utils;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\File;
 
 class OutgoingMailController extends Controller
 {
@@ -23,9 +25,27 @@ class OutgoingMailController extends Controller
         return $request->validate($validate);
     }
 
+    private function outgoingMailFileValidate($request)
+    {
+        return Validator::validate(
+            $request->file(),
+            [
+                'mailFile' => [
+                    'required',
+                    File::types(['docx', 'pdf'])->max(1024 * 2)
+                ]
+            ],
+            [
+                'required'      => 'Dokumen Wajib Diisi',
+                'mimes'         => 'Tipe Dokumen .docx atau .pdf',
+                'max'           => 'Dokumen Maksimal 2MB'
+            ]
+        );
+    }
+
     private function getOutgoingMailData($request)
     {
-        return $outgoingMailData = [
+        return [
             'mail_number'               => $request->mailNumber,
             'date'                      => strtotime($request->date),
             'mail_nature'               => $request->mailNature,
@@ -56,7 +76,12 @@ class OutgoingMailController extends Controller
     public function store(Request $request)
     {
         $this->outgoingMailValidate($request);
-        OutgoingMail::create($this->getOutgoingMailData($request));
+        $this->outgoingMailFileValidate($request);
+
+        $outgoingMail = OutgoingMail::create($this->getOutgoingMailData($request));
+
+        // input file
+        $request->file('mailFile')->storeAs('public/files/outgoing-mail', $outgoingMail->id . '.' . $request->mailFile->extension());
 
         return redirect('/surat-keluar')->with([
             'icon'      => 'success',

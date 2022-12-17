@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>
-    Tambah Data Pengguna
+    Ubah Data SMAN 8 Kota Bengkulu
     <p> Sistem Informasi Pengarsipan Surat</p>
 </h1>
 
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="mb-3 d-flex justify-content-end gap-2">
-            <a href="/surat-keluar" class="btn btn-warning">Kembali</a>
+            <a href="/tentang" class="btn btn-warning">Kembali</a>
             <button type="submit" class="btn btn-primary">Ubah</button>
         </div>
     </form>

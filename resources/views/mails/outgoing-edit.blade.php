@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>
-    Tambah Data Pengguna
+    Edit Surat Keluar
     <p> Sistem Informasi Pengarsipan Surat</p>
 </h1>
 

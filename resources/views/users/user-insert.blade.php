@@ -24,6 +24,7 @@
                 data-select="{{ old('role') }}">
                 <option value="sekretaris">Sekretaris</option>
                 <option value="kepala-sekolah">Kepala Sekolah</option>
+                <option value="admin">Admin</option>
             </select>
             <div id="roleFeedback" class="invalid-feedback">{{ $errors->first('role') }}</div>
             <div id="roleHelp" class="form-text">Masukkan Status Pengguna</div>

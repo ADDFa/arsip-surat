@@ -84,7 +84,7 @@
                 class="user-profile-picture">
             <span class="text-dark username">
                 <span>{{ session('user')->username }}</span>
-                <span>{{ session('user')->role }}</span>
+                <span class="text-capitalize">{{ session('user')->role }}</span>
             </span>
         </a>
         <hr>

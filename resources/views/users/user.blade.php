@@ -53,7 +53,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->credential->email }}</td>
-                <td>{{ $user->role }}</td>
+                <td class="text-capitalize">{{ $user->role }}</td>
                 <td class="action">
                     <a href="/pengguna/{{ $user->id }}" class="btn btn-success">
                         <i class="bi bi-info-circle"></i>
