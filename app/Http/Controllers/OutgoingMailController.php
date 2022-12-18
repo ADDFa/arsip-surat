@@ -11,6 +11,8 @@ use Illuminate\Validation\Rules\File;
 
 class OutgoingMailController extends Controller
 {
+    private string $path = 'public/files/outgoing-mail';
+
     private function outgoingMailValidate($request, $update = false)
     {
         $validate = [
@@ -82,7 +84,7 @@ class OutgoingMailController extends Controller
         $outgoingMail = OutgoingMail::create($this->getOutgoingMailData($request));
 
         // input file
-        $request->file('mailFile')->storeAs('public/files/outgoing-mail', $outgoingMail->id . '.' . $request->mailFile->extension());
+        $request->file('mailFile')->storeAs($this->path, "{$outgoingMail->id}.{$request->mailFile->extension()}");
 
         return redirect('/surat-keluar')->with([
             'icon'      => 'success',
@@ -123,12 +125,10 @@ class OutgoingMailController extends Controller
             $this->outgoingMailFileValidate($request);
 
             // hapus file lama dan update file baru
-            $path = 'public/files/outgoing-mail/' . $outgoingMail->id;
-            Storage::delete($path . '.docx');
-            Storage::delete($path . '.pdf');
+            Storage::delete("{$this->path}/{$outgoingMail->id}.docx");
+            Storage::delete("{$this->path}/{$outgoingMail->id}.pdf");
 
-            $filename = "{$outgoingMail->id}.{$request->mailFile->extension()}";
-            $request->mailFile->storeAs('public/files/outgoing-mail', $filename);
+            $request->mailFile->storeAs($this->path, "{$outgoingMail->id}.{$request->mailFile->extension()}");
         }
 
         OutgoingMail::where('id', $outgoingMail->id)->update($this->getOutgoingMailData($request));
@@ -142,9 +142,8 @@ class OutgoingMailController extends Controller
     public function destroy(OutgoingMail $outgoingMail)
     {
         // hapus file
-        $path = 'public/files/outgoing-mail/' . $outgoingMail->id;
-        Storage::delete($path . '.docx');
-        Storage::delete($path . '.pdf');
+        Storage::delete("{$this->path}/{$outgoingMail->id}.docx");
+        Storage::delete("{$this->path}/{$outgoingMail->id}.pdf");
 
         // hapus data didatabase
         $outgoingMail->delete();

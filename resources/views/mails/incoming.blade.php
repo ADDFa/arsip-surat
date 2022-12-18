@@ -7,7 +7,7 @@
 </h1>
 
 <div class="add-data col-lg-12">
-    <a href="" class="btn btn-primary">
+    <a href="/surat-masuk/create" class="btn btn-primary">
         <i class="bi bi-cloud-plus"></i>
         Tambah Surat Masuk
     </a>
@@ -41,7 +41,7 @@
             <tr>
                 <th>No</th>
                 <th>Nomor Surat</th>
-                <th>Jenis Surat</th>
+                <th>Sifat Surat</th>
                 <th>Pengirim</th>
                 <th>Disposisi</th>
                 <th class="text-center">Aksi</th>
@@ -60,7 +60,7 @@
                     <a href="" class="btn btn-success">
                         <i class="bi bi-info-circle"></i>
                     </a>
-                    <a href="" class="btn btn-info">
+                    <a href="/surat-masuk/{{ $mail->id }}/edit" class="btn btn-info">
                         <i class="bi bi-pen"></i>
                     </a>
 

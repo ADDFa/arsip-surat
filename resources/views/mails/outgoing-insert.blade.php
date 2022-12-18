@@ -45,7 +45,7 @@
                 id="mailDestination" name="mailDestination" value="{{ old('mailDestination') }}"
                 aria-describedby="mailDestinationHelp mailDestinationFeddback">
             <div id="mailDestinationFeddback" class="invalid-feedback">{{ $errors->first('mailDestination') }}</div>
-            <div id="mailDestinationHelp" class="form-text">Masukkan Status Pengguna</div>
+            <div id="mailDestinationHelp" class="form-text">Masukkan Tujuan Surat</div>
         </div>
         <div class="mb-3">
             <label for="mailFile" class="form-label">File Surat</label>
