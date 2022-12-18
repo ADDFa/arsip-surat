@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\OutgoingMail;
 use App\Http\Controllers\Utils;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\File;
 
@@ -117,6 +118,19 @@ class OutgoingMailController extends Controller
     {
         $this->outgoingMailValidate($request, true);
 
+        // cek file diupdate
+        if (!is_null($request->mailFile)) {
+            $this->outgoingMailFileValidate($request);
+
+            // hapus file lama dan update file baru
+            $path = 'public/files/outgoing-mail/' . $outgoingMail->id;
+            Storage::delete($path . '.docx');
+            Storage::delete($path . '.pdf');
+
+            $filename = "{$outgoingMail->id}.{$request->mailFile->extension()}";
+            $request->mailFile->storeAs('public/files/outgoing-mail', $filename);
+        }
+
         OutgoingMail::where('id', $outgoingMail->id)->update($this->getOutgoingMailData($request));
 
         return redirect('/surat-keluar')->with([
@@ -127,6 +141,12 @@ class OutgoingMailController extends Controller
 
     public function destroy(OutgoingMail $outgoingMail)
     {
+        // hapus file
+        $path = 'public/files/outgoing-mail/' . $outgoingMail->id;
+        Storage::delete($path . '.docx');
+        Storage::delete($path . '.pdf');
+
+        // hapus data didatabase
         $outgoingMail->delete();
 
         return redirect('/surat-keluar')->with([
