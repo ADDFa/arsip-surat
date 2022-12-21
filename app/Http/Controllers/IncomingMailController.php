@@ -150,4 +150,15 @@ class IncomingMailController extends Controller
 
         return view('mails.incoming-report', $data);
     }
+
+    // disposition
+    public function test()
+    {
+        return view('test');
+    }
+
+    public function disposition(Request $request)
+    {
+        echo json_encode($request->toArray());
+    }
 }
