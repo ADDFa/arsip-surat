@@ -47,4 +47,7 @@ Route::middleware('login')->group(function () {
             ]
         ]
     );
+
+    Route::get('test', [IncomingMailController::class, 'test']);
+    Route::post('disposisi', [IncomingMailController::class, 'disposition']);
 });
