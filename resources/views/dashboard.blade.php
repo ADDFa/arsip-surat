@@ -7,7 +7,7 @@
 </h1>
 
 <div role="dashboard-content" class="row col-lg-12 mb-5">
-    <div class="col-lg-3">
+    <div class="col-lg-3 mb-3">
         <a href="/pengguna">
             <div class="card">
                 <div class="card-body">
@@ -20,7 +20,7 @@
         </a>
     </div>
 
-    <div class="col-lg-3">
+    <div class="col-lg-3 mb-3">
         <a href="/disposisi">
             <div class="card">
                 <div class="card-body">
@@ -33,7 +33,7 @@
         </a>
     </div>
 
-    <div class="col-lg-3">
+    <div class="col-lg-3 mb-3">
         <a href="/surat-masuk">
             <div class="card">
                 <div class="card-body">
@@ -46,7 +46,7 @@
         </a>
     </div>
 
-    <div class="col-lg-3">
+    <div class="col-lg-3 mb-3">
         <a href="/surat-keluar">
             <div class="card">
                 <div class="card-body">
@@ -73,20 +73,13 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
+                @foreach ($mailsToday as $mailToday)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $mailToday->mail_nature }}</td>
+                    <td>{{ $mailToday->mail_category }}</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('date', 20);
             $table->string('mail_nature', 20);
             $table->string('mail_category', 30);
+            $table->string('regarding_mail', 30);
             $table->string('mail_destination', 40);
         });
     }

@@ -19,6 +19,7 @@ class IncomingMailController extends Controller
             'date'              => 'required|max:20',
             'mailNature'        => 'required|max:20',
             'mailCategory'      => 'required|max:30',
+            'regardingMail'     => 'required|max:30',
             'sender'            => 'required|max:40'
         ];
 
@@ -52,6 +53,7 @@ class IncomingMailController extends Controller
             'date'                      => strtotime($request->date),
             'mail_nature'               => $request->mailNature,
             'mail_category'             => $request->mailCategory,
+            'regarding_mail'            => $request->regardingMail,
             'sender'                    => $request->sender
         ];
     }

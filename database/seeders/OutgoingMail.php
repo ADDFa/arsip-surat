@@ -22,6 +22,7 @@ class OutgoingMail extends Seeder
                 'date'          => strtotime(now()),
                 'mail_nature' => Str::random(),
                 'mail_category' => Str::random(),
+                'regarding_mail' => Str::random(),
                 'mail_destination' => Str::random()
             ]);
         }

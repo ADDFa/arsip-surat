@@ -39,24 +39,33 @@
             <label for="mailCategory" class="form-label">Kategori Surat</label>
             <input type="mailCategory" class="form-control {{ $errors->has('mailCategory') ? 'is-invalid' : '' }}"
                 id="mailCategory" name="mailCategory" value="{{ $outgoingMail->mail_category ?? old('mailCategory') }}"
-                aria-describedby="mailCategoryHelp mailCategoryFeddback">
-            <div id="mailCategoryFeddback" class="invalid-feedback">{{ $errors->first('mailCategory') }}</div>
+                aria-describedby="mailCategoryHelp mailCategoryFeedback">
+            <div id="mailCategoryFeedback" class="invalid-feedback">{{ $errors->first('mailCategory') }}</div>
             <div id="mailCategoryHelp" class="form-text">Masukkan Kategori Surat Keluar</div>
+        </div>
+        <div class="mb-3">
+            <label for="regardingMail" class="form-label">Perihal Surat</label>
+            <input type="regardingMail" class="form-control {{ $errors->has('regardingMail') ? 'is-invalid' : '' }}"
+                id="regardingMail" name="regardingMail"
+                value="{{ $outgoingMail->regarding_mail ?? old('regardingMail') }}"
+                aria-describedby="regardingMailHelp regardingMailFeedback">
+            <div id="regardingMailFeedback" class="invalid-feedback">{{ $errors->first('regardingMail') }}</div>
+            <div id="regardingMailHelp" class="form-text">Masukkan Perihal Surat</div>
         </div>
         <div class="mb-3">
             <label for="mailDestination" class="form-label">Tujuan Surat</label>
             <input type="mailDestination" class="form-control {{ $errors->has('mailDestination') ? 'is-invalid' : '' }}"
                 id="mailDestination" name="mailDestination"
                 value="{{ $outgoingMail->mail_destination ?? old('mailDestination') }}"
-                aria-describedby="mailDestinationHelp mailDestinationFeddback">
-            <div id="mailDestinationFeddback" class="invalid-feedback">{{ $errors->first('mailDestination') }}</div>
+                aria-describedby="mailDestinationHelp mailDestinationFeedback">
+            <div id="mailDestinationFeedback" class="invalid-feedback">{{ $errors->first('mailDestination') }}</div>
             <div id="mailDestinationHelp" class="form-text">Masukkan Tujuan Surat</div>
         </div>
         <div class="mb-3">
             <label for="mailFile" class="form-label">File Surat</label>
             <input type="file" class="form-control {{ $errors->has('mailFile') ? 'is-invalid' : '' }}" id="mailFile"
-                name="mailFile" aria-describedby="mailFileHelp mailFileFeeddback">
-            <div id="mailFileFeeddback" class="invalid-feedback">{{ $errors->first('mailFile') }}</div>
+                name="mailFile" aria-describedby="mailFileHelp mailFileFeedback">
+            <div id="mailFileFeedback" class="invalid-feedback">{{ $errors->first('mailFile') }}</div>
             <div id="mailFileHelp" class="form-text">Masukkan File Surat</div>
         </div>
         <div class="mb-3 d-flex justify-content-end gap-2">
