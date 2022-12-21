@@ -191,5 +191,9 @@ return [
         'address'           => 'Alamat',
         'headMaster'        => 'Kepala Sekolah',
         'nipHeadMaster'     => 'NIP Kepala Sekolah',
+
+        // disposition
+        'dispositionDestination'    => 'Disposisi Kepada',
+        'dispositionContent'        => 'Isi Disposisi'
     ],
 ];

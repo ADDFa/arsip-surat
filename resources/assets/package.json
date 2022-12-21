@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "css": "sass --no-source-map --style=compressed sass/index.sass ../../public/css/index.css -w",
     "script": "webpack"

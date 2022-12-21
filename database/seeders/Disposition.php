@@ -15,13 +15,13 @@ class Disposition extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
-            DB::table('dispositions')->insert([
-                'regarding' => Str::random(),
-                'mail_origin' => Str::random(),
-                'disposition_destination' => Str::random(),
-                'disposition_content' => Str::random()
-            ]);
-        }
+        DB::table('dispositions')->insert([
+            'regarding_mail' => Str::random(),
+            'from_unit' => Str::random(),
+            'disposition_destination' => Str::random(),
+            'disposition_content' => Str::random(),
+            'user_id' => 1,
+            'incoming_mail_id' => 1
+        ]);
     }
 }

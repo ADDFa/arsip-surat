@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('dispositions', function (Blueprint $table) {
             $table->id();
-            $table->string('regarding', 30);
-            $table->string('mail_origin', 30);
+            $table->string('regarding_mail', 30);
+            $table->string('from_unit', 30);
             $table->string('disposition_destination', 30);
             $table->string('disposition_content', 150);
+            $table->foreignId('user_id')->constrained('users')->onDelete('CASCADE');
+            $table->foreignId('incoming_mail_id')->constrained('incoming_mails')->onDelete('CASCADE');
         });
     }
 

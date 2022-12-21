@@ -15,10 +15,10 @@ class Main extends Seeder
     {
         $this->call([
             DatabaseSeeder::class,
-            Disposition::class,
             OutgoingMail::class,
             IncomingMail::class,
             User::class,
+            Disposition::class,
             Credential::class,
             About::class
         ]);

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\File;
+use App\Models\Disposition;
 
 class IncomingMailController extends Controller
 {
@@ -157,8 +158,49 @@ class IncomingMailController extends Controller
         return view('test');
     }
 
+    private function dispositionValidation(Request $request)
+    {
+        return Validator::make(
+            $request->all(),
+            [
+                'regardingMail'             => 'required|max:30',
+                'fromUnit'                  => 'required|max:30',
+                'dispositionDestination'    => 'required|max:30',
+                'dispositionContent'        => 'required'
+            ],
+            [
+                'required'                  => 'Kolom :attribute Harus Diisi',
+                'max'                       => 'Kolom :attribute Maksimnal :max Karakter'
+            ]
+        );
+    }
+
+    private function getDispositionData(Request $request)
+    {
+        return [
+            'incoming_mail_id'          => $request->incomingMailId,
+            'user_id'                   => $request->userId,
+            'regarding_mail'            => $request->regardingMail,
+            'from_unit'                 => $request->fromUnit,
+            'disposition_destination'   => $request->dispositionDestination,
+            'disposition_content'       => $request->dispositionContent
+        ];
+    }
+
     public function disposition(Request $request)
     {
-        echo json_encode($request->toArray());
+        $validator = $this->dispositionValidation($request);
+
+        if ($validator->fails()) return response()->json(['errors'  => $validator->errors()]);
+
+        $disposition = Disposition::where('incoming_mail_id', $request->incomingMailId)->get()->first();
+        $data = $this->getDispositionData($request);
+
+        if (!$disposition) Disposition::create($data);
+        if ($disposition) $disposition->update($data);
+
+        return response()->json([
+            'message'   => 'Berhasil Mendisposisikan Surat'
+        ]);
     }
 }
