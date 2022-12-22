@@ -93,27 +93,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        return view('users.user-change-password');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -123,6 +102,9 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect('/pengguna');
+        return redirect('/pengguna')->with([
+            'icon'      => 'success',
+            'message'   => 'Berhasil Menghapus Data Pengguna'
+        ]);
     }
 }

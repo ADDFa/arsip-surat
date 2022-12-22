@@ -33,7 +33,7 @@
         </div>
 
         <form class="search position-relative col-lg-4">
-            <input type="text" class="form-control" placeholder="Search...">
+            <input type="text" data-table="users" class="form-control" placeholder="Cari Berdasarkan Nama">
         </form>
     </div>
 
@@ -63,9 +63,10 @@
                         @method('DELETE')
                         @csrf
 
-                        <button class="btn btn-danger">
-                            <i class="bi bi-trash"></i>
+                        <button type="button" class="btn btn-danger delete">
+                            <i class="bi bi-trash delete"></i>
                         </button>
+                        <button hidden type="submit"></button>
                     </form>
                 </td>
             </tr>

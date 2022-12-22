@@ -1,4 +1,5 @@
 const Swal = require('sweetalert2')
+const { el } = require('../function/global')
 
 const dispositionMessage = (errorList = '', icon, title) => {
     Swal.mixin({
@@ -37,23 +38,22 @@ const saveDispositionData = e => {
                 for (err in errors) {
                     errorList += `<li>${errors[err]}</li>`
                 }
+
                 dispositionMessage(errorList, 'error', 'Disposisi Gagal')
             } else {
                 dispositionMessage('', 'success', 'Disposisi Berhasil')
-
-                document.querySelector('.disposition .btn-close').click()
+                el('.disposition .btn-close').click()
             }
         })
 }
 
 const getMailData = e => {
     if (!e.target.classList.contains('btn-disposition')) return
-    document.getElementById('regardingMail').value = e.target.dataset.regardingmail
-    document.querySelector('.regardingMailInput').value = e.target.dataset.regardingmail
+    el('#regardingMail').value = e.target.dataset.regardingmail
+    el('.regardingMailInput').value = e.target.dataset.regardingmail
+    el('[name="incomingMailId"]').value = e.target.dataset.mailid
 
-    document.querySelector('[name="incomingMailId"]').value = e.target.dataset.mailid
-
-    document.querySelector('.btn-save-disposition').addEventListener('click', saveDispositionData)
+    el('.btn-save-disposition').addEventListener('click', saveDispositionData)
 }
 
 document.addEventListener('click', getMailData)

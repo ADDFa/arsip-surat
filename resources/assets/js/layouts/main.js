@@ -1,7 +1,7 @@
 const Swal = require('sweetalert2')
 
-// global function
-const el = el => document.querySelector(`${el}`)
+const { search } = require('../utils/search')
+const { el } = require('../function/global')
 
 // active sidebar
 const setActive = () => {
@@ -73,7 +73,10 @@ const deleteData = e => {
 }
 
 // event
-document.addEventListener('input', removeInvalid)
+document.addEventListener('input', e => {
+    removeInvalid(e)
+    search(e)
+})
 
 document.addEventListener('click', deleteData)
 

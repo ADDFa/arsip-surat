@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Disposition;
 use App\Models\IncomingMail;
 use App\Models\OutgoingMail;
-use App\Models\About;
+use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
@@ -68,5 +68,19 @@ class MainController extends Controller
         ];
 
         return view('dashboard', $data);
+    }
+
+    // search
+    public function getDataUser(Request $request)
+    {
+        $user = User::with('credential')->where('name', 'like', "%$request->v%")->get();
+        return response()->json(['data' => $user, 'token'   => $request->session()->token()]);
+    }
+
+    public function search(Request $request)
+    {
+        if ($request->t === 'users') return $this->getDataUser($request);
+
+        return response()->json(['data' => null]);
     }
 }

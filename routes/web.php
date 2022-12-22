@@ -30,6 +30,8 @@ Route::middleware('login')->group(function () {
     Route::get('surat-masuk/laporan', [IncomingMailController::class, 'report']);
     Route::get('surat-keluar/laporan', [OutgoingMailController::class, 'report']);
 
+    Route::get('/cari', [MainController::class, 'search']);
+
     Route::singleton('tentang', AboutController::class);
     Route::singleton('pengguna.edit-profil', ChangeProfilController::class)
         ->parameter('pengguna', 'credential');
