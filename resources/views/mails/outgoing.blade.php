@@ -33,7 +33,8 @@
         </div>
 
         <form class="search position-relative col-lg-4">
-            <input type="text" class="form-control" placeholder="Search...">
+            <input type="text" data-table="outgoing_mails" class="form-control"
+                placeholder="Cari Berdasarkan Nomor Surat">
         </form>
     </div>
 

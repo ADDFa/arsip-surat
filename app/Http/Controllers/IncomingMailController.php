@@ -143,6 +143,7 @@ class IncomingMailController extends Controller
         ]);
     }
 
+    // report
     public function report()
     {
         $data = [
@@ -150,6 +151,17 @@ class IncomingMailController extends Controller
         ];
 
         return view('mails.incoming-report', $data);
+    }
+
+    // print
+    public function print()
+    {
+        $data = [
+            'title'     => 'Laporan Surat Masuk',
+            'print'     => 'surat-masuk'
+        ];
+
+        return view('mails.mails-print', $data);
     }
 
     // disposition

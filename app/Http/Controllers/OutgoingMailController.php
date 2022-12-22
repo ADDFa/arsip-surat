@@ -156,6 +156,7 @@ class OutgoingMailController extends Controller
         ]);
     }
 
+    // report
     public function report()
     {
         $data = [
@@ -163,5 +164,16 @@ class OutgoingMailController extends Controller
         ];
 
         return view('mails.outgoing-report', $data);
+    }
+
+    // print
+    public function print()
+    {
+        $data = [
+            'title'     => 'Laporan Surat Keluar',
+            'print'     => 'surat-keluar'
+        ];
+
+        return view('mails.mails-print', $data);
     }
 }

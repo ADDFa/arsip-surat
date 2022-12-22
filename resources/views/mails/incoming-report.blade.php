@@ -7,7 +7,7 @@
 </h1>
 
 <div class="print-data col-lg-12">
-    <a href="" class="btn btn-primary">
+    <a href="/surat-masuk/print" target="_blank" class="btn btn-primary">
         <i class="bi bi-printer"></i>
         Print
     </a>
@@ -15,24 +15,8 @@
 
 <div role="main-content">
     <div class="aksi d-flex justify-content-between align-items-center mb-4">
-        <div class="dropdown col-lg-8">
-            <span>Tampilkan</span>
-
-            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                3
-            </a>
-
-            <span>Data</span>
-
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">1</a></li>
-                <li><a class="dropdown-item" href="#">2</a></li>
-                <li><a class="dropdown-item" href="#">3</a></li>
-            </ul>
-        </div>
-
-        <form class="search position-relative col-lg-4">
-            <input type="text" class="form-control" placeholder="Search...">
+        <form>
+            <input type="date">
         </form>
     </div>
 

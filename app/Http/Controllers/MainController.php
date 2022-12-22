@@ -77,9 +77,23 @@ class MainController extends Controller
         return response()->json(['data' => $user, 'token'   => $request->session()->token()]);
     }
 
+    public function getDataOutgoingMails(Request $request)
+    {
+        $outgoingMails = OutgoingMail::where('mail_number', 'like', "%$request->v%")->get();
+        return response()->json(['data' => $outgoingMails, 'token'  => $request->session()->token()]);
+    }
+
+    public function getDataIncomingMails(Request $request)
+    {
+        $incomingMails = IncomingMail::where('mail_number', 'like', "%$request->v%")->get();
+        return response()->json(['data' => $incomingMails, 'token'  => $request->session()->token()]);
+    }
+
     public function search(Request $request)
     {
         if ($request->t === 'users') return $this->getDataUser($request);
+        if ($request->t === 'outgoing_mails') return $this->getDataOutgoingMails($request);
+        if ($request->t === 'incoming_mails') return $this->getDataIncomingMails($request);
 
         return response()->json(['data' => null]);
     }
