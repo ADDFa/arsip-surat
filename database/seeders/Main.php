@@ -14,12 +14,9 @@ class Main extends Seeder
     public function run()
     {
         $this->call([
-            DatabaseSeeder::class,
             OutgoingMail::class,
             IncomingMail::class,
             User::class,
-            Disposition::class,
-            Credential::class,
             About::class
         ]);
     }

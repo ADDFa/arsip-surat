@@ -31,7 +31,8 @@ Route::middleware('login')->group(function () {
     Route::get('surat-keluar/laporan', [OutgoingMailController::class, 'report']);
 
     Route::singleton('tentang', AboutController::class);
-    Route::singleton('pengguna.edit-profil', ChangeProfilController::class)->parameter('pengguna', 'credential');
+    Route::singleton('pengguna.edit-profil', ChangeProfilController::class)
+        ->parameter('pengguna', 'credential');
 
     Route::resources(
         [
@@ -44,10 +45,12 @@ Route::middleware('login')->group(function () {
                 'surat-masuk'   => 'incoming_mail',
                 'surat-keluar'  => 'outgoing_mail',
                 'pengguna'      => 'user'
+            ],
+            'middleware'        => [
+                'pengguna'      => 'admin'
             ]
         ]
     );
 
-    Route::get('test', [IncomingMailController::class, 'test']);
     Route::post('disposisi', [IncomingMailController::class, 'disposition']);
 });

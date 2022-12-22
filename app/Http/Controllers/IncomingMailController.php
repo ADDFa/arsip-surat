@@ -153,11 +153,6 @@ class IncomingMailController extends Controller
     }
 
     // disposition
-    public function test()
-    {
-        return view('test');
-    }
-
     private function dispositionValidation(Request $request)
     {
         return Validator::make(

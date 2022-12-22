@@ -18,12 +18,12 @@ class OutgoingMail extends Seeder
     {
         for ($i = 0; $i < 10; $i++) {
             DB::table('outgoing_mails')->insert([
-                'mail_number' => Str::random(),
-                'date'          => strtotime(now()),
-                'mail_nature' => Str::random(),
-                'mail_category' => Str::random(),
-                'regarding_mail' => Str::random(),
-                'mail_destination' => Str::random()
+                'mail_number'           => Str::random(),
+                'date'                  => strtotime(now()),
+                'mail_nature'           => Str::random(),
+                'mail_category'         => Str::random(),
+                'regarding_mail'        => Str::random(),
+                'mail_destination'      => Str::random()
             ]);
         }
     }

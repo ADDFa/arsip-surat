@@ -14,13 +14,26 @@ class User extends Seeder
      */
     public function run()
     {
-        $role = ['admin', 'sekretaris', 'kepala-sekolah'];
+        $roles = ['admin', 'sekretaris'];
+        $users = [
+            'admin'         => 1,
+            'sekretaris'    => 2
+        ];
 
-        for ($i = 0; $i < 10; $i++) {
+        foreach ($roles as $role) {
             DB::table('users')->insert([
                 'name'      => fake()->name(),
                 'avatar'    => 'samsudin.jpg',
-                'role'      => $role[rand(0, 2)]
+                'role'      => $role
+            ]);
+        }
+
+        foreach ($users as $user) {
+            DB::table('credentials')->insert([
+                'username'  => fake()->userName(),
+                'email'     => fake()->safeEmail(),
+                'password'  => password_hash('password', PASSWORD_DEFAULT),
+                'user_id'   => $user
             ]);
         }
     }

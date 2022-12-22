@@ -56,4 +56,4 @@ const getMailData = e => {
     document.querySelector('.btn-save-disposition').addEventListener('click', saveDispositionData)
 }
 
-document.querySelector('.incoming-table').addEventListener('click', getMailData)
+document.addEventListener('click', getMailData)

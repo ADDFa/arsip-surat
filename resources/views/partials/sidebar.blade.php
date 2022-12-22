@@ -95,12 +95,19 @@
                     Dashboard
                 </a>
             </li>
+
+            {{-- only admin --}}
+            @if (session('user')->role === 'admin')
             <li>
                 <a href="/pengguna" data-active="/pengguna" class="nav-link">
                     <i class="bi bi-person-fill-add"></i>
                     Data Pengguna
                 </a>
             </li>
+            @endif
+            {{-- only admin --}}
+
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-active="/surat-masuk" data-active-two="/surat-keluar"
                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
