@@ -23,7 +23,7 @@
                 aria-label="Default select example" id="role" name="role" aria-describedby="roleHelp roleFeedback"
                 data-select="{{ old('role') }}">
                 <option value="sekretaris">Sekretaris</option>
-                <option value="kepala-sekolah">Kepala Sekolah</option>
+                <option value="kepala-sekolah">Staff</option>
                 <option value="admin">Admin</option>
             </select>
             <div id="roleFeedback" class="invalid-feedback">{{ $errors->first('role') }}</div>

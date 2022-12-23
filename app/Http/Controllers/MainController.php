@@ -30,27 +30,61 @@ class MainController extends Controller
         return $mailsToday;
     }
 
-    private function getMailsThisYear()
+    protected function getMailsThisYear()
     {
-        $oneYear = time() - $this->oneDay * 365;
-        $mails = IncomingMail::where('date', '>', $oneYear)->get()->toArray();
+        function getMailsThisMonth(array $mails, array $range): int
+        {
+            $mailsInThisMont = array_filter($mails, function ($key) use ($mails, $range) {
+                return $mails[$key]['date'] >= $range[0] && $mails[$key]['date'] < $range[1];
+            }, ARRAY_FILTER_USE_KEY);
+
+            return count($mailsInThisMont);
+        }
+
+        function getRangeMonth(int $month, $year): array
+        {
+            $nextMonth = $month + 1;
+
+            $start = strtotime("1-$month-$year 00:00:00");
+            $end = strtotime("1-$nextMonth-$year 00:00:00") - 1;
+
+            if ($nextMonth > 12) {
+                $nextMonth = 1;
+                $year += 1;
+
+                $end = strtotime("1-$nextMonth-$year 00:00:00") - 1;
+            }
+
+            return [$start, $end];
+        }
+
+        $year = date('Y');
+        $mails = IncomingMail::where('date', '>', strtotime("1-1-$year"))->where('date', '<', strtotime("31-12-$year"))->get()->toArray();
 
         $mailsThisYear = [
-            'jan'   => 0,
-            'feb'   => 0,
-            'mar'   => 0,
-            'apr'   => 0,
-            'mei'   => 0,
-            'jun'   => 0,
-            'jul'   => 0,
-            'aug'   => 0,
-            'sep'   => 0,
-            'okt'   => 0,
-            'nov'   => 0,
-            'des'   => 0,
+            'jan' => 0,
+            'feb' => 0,
+            'mar' => 0,
+            'apr' => 0,
+            'may' => 0,
+            'jun' => 0,
+            'jul' => 0,
+            'aug' => 0,
+            'sep' => 0,
+            'oct' => 0,
+            'nov' => 0,
+            'dec' => 0,
         ];
 
-        return $mailsThisYear;
+        $month = 1;
+        foreach ($mailsThisYear as $key => $val) {
+            $result = getMailsThisMonth($mails, getRangeMonth($month, $year));
+            $mailsThisYear[$key] = (int) $result;
+
+            $month++;
+        }
+
+        return response()->json(['mailsThisYear'    => $mailsThisYear]);
     }
 
     public function index()

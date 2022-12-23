@@ -61,7 +61,7 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-5">
+    <div class="col-lg-5 mails-today">
         <h4>Surat yang masuk dan keluar hari ini</h4>
 
         <table class="table">

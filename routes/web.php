@@ -28,8 +28,9 @@ Route::get('/keluar', [LoginController::class, 'exit']);
 Route::middleware('login')->group(function () {
     Route::get('beranda', [MainController::class, 'index']);
     Route::get('surat-masuk/laporan', [IncomingMailController::class, 'report']);
-    Route::get('surat-keluar/laporan', [OutgoingMailController::class, 'report']);
     Route::get('surat-masuk/print', [IncomingMailController::class, 'print']);
+    Route::get('surat-masuk-bulan-ini', [MainController::class, 'getMailsThisYear']);
+    Route::get('surat-keluar/laporan', [OutgoingMailController::class, 'report']);
     Route::get('surat-keluar/print', [OutgoingMailController::class, 'print']);
 
     Route::get('/cari', [MainController::class, 'search']);
